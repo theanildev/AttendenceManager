@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Manager</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Navigation -->
+        <div class="top-controls">
+            <button id="aboutBtn" class="btn-secondary" title="About Us">
+                <i class="fa-solid fa-user"></i> About Me
+            </button>
+        </div>
+        <header class="app-header">
+            <h1>Attendance Manager</h1>
+        </header>
+
+        <!-- Summary Section -->
+        <section class="summary-section">
+            <div class="summary-left">
+                <p class="current-date" id="currentDateDisplay"></p>
+            </div>
+            <div class="summary-center">
+                <p>Target: <span id="targetDisplay">75%</span></p>
+                <p>Total Attendance: <span id="totalAttendanceDisplay">0%</span></p>
+            </div>
+            <div class="summary-right">
+                <button id="editTargetBtn" class="btn-primary target-btn">SET TARGET</button>
+                <button id="addSubjectBtn" class="btn-primary">ADD SUBJECT</button>
+            </div>
+        </section>
+
+        <!-- Subject List -->
+        <main class="subject-list" id="subjectList">
+            <!-- Subject cards will be injected here dynamically -->
+        </main>
+    </div>
+
+    <!-- Add Subject Modal -->
+    <div id="addSubjectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeAddModal">&times;</span>
+            <h2>Add New Subject</h2>
+            <div class="form-group">
+                <label for="subjectName">Subject Name</label>
+                <input type="text" id="subjectName" placeholder="e.g. Mathematics">
+            </div>
+            <div class="form-group">
+                <label for="totalClasses">Total Classes</label>
+                <input type="number" id="totalClasses" min="1" placeholder="e.g. 10">
+            </div>
+            <div class="form-group">
+                <label for="attendedClasses">Attended Classes</label>
+                <input type="number" id="attendedClasses" min="0" placeholder="e.g. 8">
+            </div>
+            <button id="saveSubjectBtn" class="btn-primary full-width">Save Subject</button>
+        </div>
+    </div>
+
+    <!-- About Us Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content about-content">
+            <span class="close-btn" id="closeAboutModal">&times;</span>
+            <h2>About Us</h2>
+            
+            <div class="profile-card">
+                <img src="whiteshirt.jpeg" alt="Anil Thapa" class="profile-img">
+                <div class="profile-info">
+                    <h3>Anil Thapa</h3>
+                    <p class="role">Student</p>
+                    <p class="desc">Passionate learner focusing on web development.</p>
+                    <div class="skills">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JS</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/theanildev" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/anil-b5873b401?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/its_anil.20?igsh=MTF2Zm4zZ3ZnajlkOQ==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <img src="Abhisheksir.png" alt="Dr. Abhishek Thakur" class="profile-img">
+                <div class="profile-info">
+                    <h3>Dr. Abhishek Thakur</h3>
+                    <p class="role">Professor</p>
+                    <p class="desc">Associate Professor at Chitkara University.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/abhithakur25" target="_blank"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.facebook.com/share/1NczoB3P2t/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/dr-abhishek-thakur-00123321?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Target Modal -->
+    <div id="editTargetModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeTargetModal">&times;</span>
+            <h2>Set Target Attendance</h2>
+            <div class="form-group">
+                <label for="newTarget">Target Percentage (%)</label>
+                <input type="number" id="newTarget" min="1" max="100" placeholder="e.g. 75">
+            </div>
+            <button id="saveTargetBtn" class="btn-primary full-width">Save Target</button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
